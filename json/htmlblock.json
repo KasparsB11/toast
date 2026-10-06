@@ -1,0 +1,14 @@
+{
+	"rules": [{
+		"rule": "verdanaremove",
+		"rulename": "Remove Verdana font",
+		"match": "font-family: Verdana",
+		"replace": ""
+	}, {
+		"rule": "example",
+		"rulename": "Empty example",
+		"match": "NaN",
+		"replace": "NaN"
+	}
+	]
+}
