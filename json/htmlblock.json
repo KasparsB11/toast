@@ -3,12 +3,22 @@
 		"rule": "verdanaremove",
 		"rulename": "Remove Verdana font",
 		"match": "font-family: Verdana",
+		"desc": "",
 		"replace": ""
-	}, {
+	},
+	{
 		"rule": "example",
 		"rulename": "Empty example",
-		"match": "NaN",
-		"replace": "NaN"
+		"match": "Yes",
+		"desc": "",
+		"replace": "Yesn't"
+	},
+	{
+		"rule": "codepadding",
+		"rulename": "Remove redundant code block padding",
+		"match": "padding-left: 30px;",
+		"desc": "",
+		"replace": ""
 	}
 	]
 }

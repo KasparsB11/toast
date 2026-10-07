@@ -7,19 +7,22 @@
 // Load the HTML block list (used to find HTML that should not be there, and subsequent replacements)
 async function loadJson() {
 	url = chrome.runtime.getURL("json/htmlblock.json");
-	response = await fetch(url);
-	if (!response.ok) throw new Error("Couldn't load HTML block json: ${response.status}");
-	console.log(response.json());
+	response = await fetch(url).then((response) => { 
+		return response.json();
+	})
+	.then((data) => {
+		htmlrules = data;
+		console.log("Data: ");
+		console.log(data);
+		console.log("End of data.");
+	});
 }
-
-loadJson();
-
-//import htmlBlocklist from './json/htmlblock.json' assert {type: 'json'}; 
 
 // Basic variables
 
 editor = null;
 toolbar = null;
+htmlrules = null;
 
 // HTML to add to the editor
 
@@ -31,7 +34,7 @@ addhtml = '<button type="button" title="Clean HTML" class="p-1.5 rounded hover:b
 
 // Things to do when initialized on the editor page
 function onInit() {
-	
+	loadJson();
 }
 
 onInit(); // Call the init function
@@ -52,7 +55,15 @@ function onDelayedInit() {
 setTimeout(function() {
 	onDelayedInit();
 },800);
-	
+
+// Iterate through the blocked HTML JSON, and address issues as described
 function doFormat() {
+	var replacement = editor.innerHTML;
+	for (i=0;i<htmlrules.rules.length;i++) {
+		replacement = replacement.replaceAll(htmlrules.rules[i].match, htmlrules.rules[i].replace);
+		
+	}
+	editor.innerHTML = replacement;
+	alert(replacement);
 	console.log(editor.innerHTML);
 }
