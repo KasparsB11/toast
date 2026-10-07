@@ -1,17 +1,17 @@
 {
 	"rules": [{
-		"rule": "verdanaremove",
-		"rulename": "Remove Verdana font",
-		"match": "font-family: Verdana",
+		"rule": "fontremove",
+		"rulename": "Remove unwanted fonts",
+		"match": "testtest",
 		"desc": "",
-		"replace": ""
+		"replace": "yestest"
 	},
 	{
 		"rule": "example",
 		"rulename": "Empty example",
-		"match": "Yes",
+		"match": "",
 		"desc": "",
-		"replace": "Yesn't"
+		"replace": ""
 	},
 	{
 		"rule": "codepadding",

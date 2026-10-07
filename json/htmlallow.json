@@ -1,0 +1,11 @@
+{
+	"rules": [{
+		"rule": "couriernew",
+		"rulename": "Preserve courier new font",
+		"match": "font-family: &quot;Courier New&quot;;",
+		"desc": "",
+		"replace": "_TEMP_COURIERNEW_",
+		"restore": "font-family: &quot;Courier New&quot;;"
+	}
+	]
+}

@@ -15,7 +15,7 @@
 	"web_accessible_resources": [
 		{
 			"matches": ["https://fortinet.grazitti.com/*"],
-			"resources": ["json/htmlblock.json"]
+			"resources": ["json/htmlblock.json", "json/htmlallow.json"]
 		}
 	]
 }

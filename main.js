@@ -12,9 +12,19 @@ async function loadJson() {
 	})
 	.then((data) => {
 		htmlrules = data;
-		console.log("Data: ");
+		console.log("HTML blocklist: ");
 		console.log(data);
-		console.log("End of data.");
+		console.log("End of HTML blocklist.");
+	});
+	url = chrome.runtime.getURL("json/htmlallow.json");
+	response = await fetch(url).then((response) => { 
+		return response.json();
+	})
+	.then((data) => {
+		htmlallow = data;
+		console.log("HTML allowlist: ");
+		console.log(data);
+		console.log("End of HTML allowlist.");
 	});
 }
 
@@ -23,6 +33,7 @@ async function loadJson() {
 editor = null;
 toolbar = null;
 htmlrules = null;
+htmlallow = null;
 
 // HTML to add to the editor
 
@@ -59,9 +70,20 @@ setTimeout(function() {
 // Iterate through the blocked HTML JSON, and address issues as described
 function doFormat() {
 	var replacement = editor.innerHTML;
+	// Temporary replacement to preserve HTML that should be shielded from the blocklist
+	// For example: turn "font-family: Courier New;" into "_TEMP_COURIERNEW_" before mass font-family removal
+	for (i=0;i<htmlallow.rules.length;i++) {
+		replacement = replacement.replaceAll(htmlallow.rules[i].match, htmlallow.rules[i].replace);
+	}
+	// Replace HTML content outlined in the HTML blocklist
+	// For example: Strip all instances of "font-family: <fonts>;"
 	for (i=0;i<htmlrules.rules.length;i++) {
 		replacement = replacement.replaceAll(htmlrules.rules[i].match, htmlrules.rules[i].replace);
-		
+	}
+	// Restore the temporary replaced content from  HTML allowlist
+	// For example: return "_TEMP_COURIERNEW_" to "font-family: Courier New;"
+	for (i=0;i<htmlallow.rules.length;i++) {
+		replacement = replacement.replaceAll(htmlallow.rules[i].replace, htmlallow.rules[i].restore);
 	}
 	editor.innerHTML = replacement;
 	console.log(replacement);
