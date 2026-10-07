@@ -64,6 +64,6 @@ function doFormat() {
 		
 	}
 	editor.innerHTML = replacement;
-	alert(replacement);
+	console.log(replacement);
 	console.log(editor.innerHTML);
 }
