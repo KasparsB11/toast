@@ -2,16 +2,16 @@
 	"rules": [{
 		"rule": "fontremove",
 		"rulename": "Remove unwanted fonts",
-		"match": "testtest",
+		"match": "font-family: ([^;]*);",
 		"desc": "",
-		"replace": "yestest"
+		"replace": ""
 	},
 	{
 		"rule": "example",
-		"rulename": "Empty example",
-		"match": "",
+		"rulename": "Test phrase",
+		"match": "Replace me",
 		"desc": "",
-		"replace": ""
+		"replace": "REPLACED"
 	},
 	{
 		"rule": "codepadding",
@@ -19,6 +19,47 @@
 		"match": "padding-left: 30px;",
 		"desc": "",
 		"replace": ""
-	}
-	]
+	},
+	{
+		"rule": "nocolor",
+		"rulename": "Remove gray colouring on text",
+		"match": "color: rgb(100, 100, 100);",
+		"desc": "",
+		"replace": ""
+	],
+	{
+		"rule": "padding",
+		"rulename": "Remove code block padding",
+		"match": "padding-left: 30px;",
+		"desc": "",
+		"replace": ""
+	},
+	{
+		"rule": "example",
+		"rulename": "Test phrase",
+		"match": "Replace me",
+		"desc": "",
+		"replace": "REPLACED"
+	},
+	{
+		"rule": "example",
+		"rulename": "Test phrase",
+		"match": "Replace me",
+		"desc": "",
+		"replace": "REPLACED"
+	},
+	{
+		"rule": "example",
+		"rulename": "Test phrase",
+		"match": "Replace me",
+		"desc": "",
+		"replace": "REPLACED"
+	},
+	{
+		"rule": "example",
+		"rulename": "Test phrase",
+		"match": "Replace me",
+		"desc": "",
+		"replace": "REPLACED"
+	}	
 }

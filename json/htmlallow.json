@@ -6,6 +6,14 @@
 		"desc": "",
 		"replace": "_TEMP_COURIERNEW_",
 		"restore": "font-family: &quot;Courier New&quot;;"
-	}
+	},
+	{
+		"rule": "couriernew2",
+		"rulename": "Preserve courier new font2",
+		"match": "font-family: &quot;Courier New&quot;, Courier, monospace;",
+		"desc": "",
+		"replace": "_TEMP_COURIERNEW_",
+		"restore": "font-family: &quot;Courier New&quot;;"
+	}	
 	]
 }
