@@ -7,7 +7,7 @@
 		"replace": ""
 	},
 	{
-		"rule": "example",
+		"rule": "example 01",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
@@ -26,7 +26,7 @@
 		"match": "color: rgb(100, 100, 100);",
 		"desc": "",
 		"replace": ""
-	],
+	},
 	{
 		"rule": "padding",
 		"rulename": "Remove code block padding",
@@ -35,31 +35,32 @@
 		"replace": ""
 	},
 	{
-		"rule": "example",
+		"rule": "example 02",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 03",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 04",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 05",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	}	
+	]
 }

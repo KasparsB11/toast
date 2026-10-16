@@ -2,6 +2,16 @@
 // Community editor
 // ------------------
 
+// QA function
+
+const tlogSwitch = 1; // 1 for logs on, 0 for logs off
+function tlog(a) {
+	if (tlogSwitch == 1) {
+		console.log("Toast output>>>>>>>");
+		console.log(a);
+	}
+}
+
 // Imported content from JSON files
 
 // Load the HTML block list (used to find HTML that should not be there, and subsequent replacements)
@@ -12,9 +22,22 @@ async function loadJson() {
 	})
 	.then((data) => {
 		htmlrules = data;
-		console.log("HTML blocklist: ");
-		console.log(data);
-		console.log("End of HTML blocklist.");
+		tlog("HTML blocklist: ");
+		tlog(data);
+		const container = document.getElementById("rulesContainer");
+		container.innerHTML = data.rules
+			.map(rule => `
+			<div>
+				<input type="checkbox" id="rule-${rule.rule}" value="${rule.rule}">
+				<label for="rule-${rule.rule}">${rule.rulename}</label>
+			</div>
+			`)
+			.join("");
+		
+		``
+		tlog("End of HTML blocklist.");
+		//tlog(tRule);
+		//return JsonTRules;
 	});
 	url = chrome.runtime.getURL("json/htmlallow.json");
 	response = await fetch(url).then((response) => { 
@@ -22,9 +45,9 @@ async function loadJson() {
 	})
 	.then((data) => {
 		htmlallow = data;
-		console.log("HTML allowlist: ");
-		console.log(data);
-		console.log("End of HTML allowlist.");
+		tlog("HTML allowlist: ");
+		tlog(data);
+		tlog("End of HTML allowlist.");
 	});
 }
 
@@ -34,6 +57,7 @@ editor = null;
 toolbar = null;
 htmlrules = null;
 htmlallow = null;
+
 
 // HTML to add to the editor
 
@@ -45,6 +69,7 @@ addhtml = '<button type="button" title="Clean HTML" class="p-1.5 rounded hover:b
 
 // Things to do when initialized on the editor page
 function onInit() {
+	tlog("======starting TOAST");
 	loadJson();
 }
 
@@ -86,6 +111,6 @@ function doFormat() {
 		replacement = replacement.replaceAll(htmlallow.rules[i].replace, htmlallow.rules[i].restore);
 	}
 	editor.innerHTML = replacement;
-	console.log(replacement);
-	console.log(editor.innerHTML);
+	tlog(replacement);
+	tlog(editor.innerHTML);
 }
