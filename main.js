@@ -16,6 +16,17 @@ function tlog(a) {
 
 // Load the HTML block list (used to find HTML that should not be there, and subsequent replacements)
 async function loadJson() {
+	// Import title rules
+	url = chrome.runtime.getURL("json/title.json");
+	response = await fetch(url).then((response) => { 
+		return response.json();
+	})
+	.then((data) => {
+		titlereplace = data;
+		console.log("Title replace list: ");
+		console.log(data);
+		console.log("End of title replace list.");
+	});
 	url = chrome.runtime.getURL("json/htmlblock.json");
 	response = await fetch(url).then((response) => { 
 		return response.json();
@@ -39,17 +50,7 @@ async function loadJson() {
 		//tlog(tRule);
 		//return JsonTRules;
 	});
-	// Import title rules
-	url = chrome.runtime.getURL("json/title.json");
-	response = await fetch(url).then((response) => { 
-		return response.json();
-	})
-	.then((data) => {
-		titlereplace = data;
-		console.log("Title replace list: ");
-		console.log(data);
-		console.log("End of title replace list.");
-	});
+
 }
 
 // Basic variables
