@@ -16,18 +16,17 @@
 			"16": "icons/toast-16.png",
 			"48": "icons/toast-48.png",
 			"128": "icons/toast-128.png"
-
 	},
 	"content_scripts": [
 		{
-			"matches": ["*://*.fortinet.grazitti.com/*fortinet-kb-production/articles/*","*://*.fortinet.grazitti.com/*t5/tkb/dashboardpage"],
+			"matches": ["*://*.fortinet.grazitti.com/*fortinet-kb-production/articles/*"],
 			"js": ["jquery-3.5.1.min.js", "main.js"]
 		}
 	],
 	"web_accessible_resources": [
 		{
 			"matches": ["https://fortinet.grazitti.com/*"],
-			"resources": ["json/htmlblock.json", "json/htmlallow.json"]
+			"resources": ["json/htmlblock.json", "json/title.json"]
 		}
 	]
 }
