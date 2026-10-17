@@ -4,7 +4,7 @@
 	"version": "1.0",
 	"description": "The Optimized Article Sanitization Transformer plugin (TOAST). Makes clientside improvements to the Fortinet Community article editor, such as allowing rapid replacement of undesirable content within articles.",
 	"icons": {
-		"48": "icons/fombra-48.png"
+		"48": "icons/toast.png"
 	},
 	"content_scripts": [
 		{
@@ -15,7 +15,7 @@
 	"web_accessible_resources": [
 		{
 			"matches": ["https://fortinet.grazitti.com/*"],
-			"resources": ["json/htmlblock.json", "json/htmlallow.json"]
+			"resources": ["json/htmlblock.json", "json/title.json"]
 		}
 	]
 }

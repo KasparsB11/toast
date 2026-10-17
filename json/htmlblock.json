@@ -1,5 +1,14 @@
 {
-	"rules": [{
+	"rules": [
+	{
+		"rule": "couriernewpreserve",
+		"rulename": "Preserve courier new font",
+		"match": "font-family: &quot;Courier New&quot;;",
+		"desc": "",
+		"replace": "_TEMP_COURIERNEW_",
+		"invisible": true
+	},
+	{
 		"rule": "fontremove",
 		"rulename": "Remove unwanted fonts",
 		"match": "font-family: ([^;]*);",
@@ -26,7 +35,7 @@
 		"match": "color: rgb(100, 100, 100);",
 		"desc": "",
 		"replace": ""
-	],
+	},
 	{
 		"rule": "padding",
 		"rulename": "Remove code block padding",
@@ -61,5 +70,14 @@
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
+	},
+	{
+		"rule": "couriernewrestore",
+		"rulename": "Restore courier new font",
+		"match": "_TEMP_COURIERNEW_",
+		"desc": "",
+		"replace": "font-family: &quot;Courier New&quot;;",
+		"restore": ""
 	}	
+	]
 }

@@ -16,15 +16,16 @@ async function loadJson() {
 		console.log(data);
 		console.log("End of HTML blocklist.");
 	});
-	url = chrome.runtime.getURL("json/htmlallow.json");
+	// Import title rules
+	url = chrome.runtime.getURL("json/title.json");
 	response = await fetch(url).then((response) => { 
 		return response.json();
 	})
 	.then((data) => {
-		htmlallow = data;
-		console.log("HTML allowlist: ");
+		titlereplace = data;
+		console.log("Title replace list: ");
 		console.log(data);
-		console.log("End of HTML allowlist.");
+		console.log("End of title replace list.");
 	});
 }
 
@@ -34,6 +35,7 @@ editor = null;
 toolbar = null;
 htmlrules = null;
 htmlallow = null;
+titlereplace = null;
 
 // HTML to add to the editor
 
@@ -54,7 +56,10 @@ onInit(); // Call the init function
 function onDelayedInit() {
 	possibleEditors = document.getElementsByClassName("ProseMirror");
 	editor = possibleEditors[0];
-	doFormat();
+	title = document.getElementById("title"); // This is an input field, so value should be modified rather than innerHTML (maybe both work, idk)
+	doTitleReplace();
+	// The general format function is paused
+	//doFormat();
 }
 
 // ------------------
@@ -66,6 +71,17 @@ function onDelayedInit() {
 setTimeout(function() {
 	onDelayedInit();
 },800);
+
+// Remove X Tip before title. 
+function doTitleReplace() {
+	var replacement = title.value;
+	console.log("Title field is "+replacement);
+	for (i=0;i<titlereplace.rules.length;i++) {
+		replacement = replacement.replaceAll(titlereplace.rules[i].match, titlereplace.rules[i].replace);
+	}
+	title.value = replacement;
+	console.log(replacement);
+} 
 
 // Iterate through the blocked HTML JSON, and address issues as described
 function doFormat() {
@@ -89,3 +105,12 @@ function doFormat() {
 	console.log(replacement);
 	console.log(editor.innerHTML);
 }
+
+// Notes 
+// Some regex: 
+/* 
+
+<span style="font-family: Courier New, Courier, monospace;">([\s\S]*?)</span>
+<code>\1</code>
+
+*/ 
