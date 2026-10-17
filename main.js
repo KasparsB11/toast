@@ -36,6 +36,7 @@ toolbar = null;
 htmlrules = null;
 htmlallow = null;
 titlereplace = null;
+title = null;
 
 // HTML to add to the editor
 
@@ -54,13 +55,18 @@ onInit(); // Call the init function
 
 // Things to do after the editor has loaded/the delay
 function onDelayedInit() {
+	console.log("Running delayed init.");
 	possibleEditors = document.getElementsByClassName("ProseMirror");
 	editor = possibleEditors[0];
-	title = document.getElementById("title"); // This is an input field, so value should be modified rather than innerHTML (maybe both work, idk)
+	let title = document.getElementById("title"); // This is an input field, so value should be modified rather than innerHTML (maybe both work, idk)
 	doTitleReplace();
 	// The general format function is paused
 	//doFormat();
 }
+
+$(document).on("click", function() {
+	doTitleReplace();
+});
 
 // ------------------
 // Function calls
@@ -74,13 +80,16 @@ setTimeout(function() {
 
 // Remove X Tip before title. 
 function doTitleReplace() {
-	var replacement = title.value;
-	console.log("Title field is "+replacement);
-	for (i=0;i<titlereplace.rules.length;i++) {
-		replacement = replacement.replaceAll(titlereplace.rules[i].match, titlereplace.rules[i].replace);
+	if (document.getElementById("title")) {
+		title = document.getElementById("title");
+		var replacement = title.value;
+		//console.log("Title field is "+replacement);
+		for (i=0;i<titlereplace.rules.length;i++) {
+			replacement = replacement.replaceAll(titlereplace.rules[i].match, titlereplace.rules[i].replace);
+		}
+		title.value = replacement;
+		//console.log(replacement);
 	}
-	title.value = replacement;
-	console.log(replacement);
 } 
 
 // Iterate through the blocked HTML JSON, and address issues as described
