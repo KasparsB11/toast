@@ -113,7 +113,9 @@ function doTitleReplace() {
 		for (i=0;i<titlereplace.rules.length;i++) {
 			replacement = replacement.replaceAll(titlereplace.rules[i].match, titlereplace.rules[i].replace);
 		}
-		title.value = replacement;
+		document.getElementById("title").value = replacement;
+		title.dispatchEvent(new Event("input", { bubbles: true}));
+		title.dispatchEvent(new Event("change", { bubbles: true}));
 		//console.log(replacement);
 	}
 } 
