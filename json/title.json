@@ -47,6 +47,34 @@
 		"match": "Troubleshooting tip: ",
 		"desc": "",
 		"replace": ""
+	},
+	{
+		"rule": "titleremove",
+		"rulename": "Remove unwanted title prefixes",
+		"match": "Technical Tip : ",
+		"desc": "",
+		"replace": ""
+	},
+	{
+		"rule": "titleremove",
+		"rulename": "Remove unwanted title prefixes",
+		"match": "Technical tip : ",
+		"desc": "",
+		"replace": ""
+	},
+	{
+		"rule": "titleremove",
+		"rulename": "Remove unwanted title prefixes",
+		"match": "Troubleshooting Tip : ",
+		"desc": "",
+		"replace": ""
+	},
+	{
+		"rule": "titleremove",
+		"rulename": "Remove unwanted title prefixes",
+		"match": "Troubleshooting Tip : ",
+		"desc": "",
+		"replace": ""
 	}
 	]
 }
