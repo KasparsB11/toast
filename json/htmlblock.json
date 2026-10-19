@@ -16,7 +16,7 @@
 		"replace": ""
 	},
 	{
-		"rule": "example",
+		"rule": "example 01",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
@@ -44,28 +44,28 @@
 		"replace": ""
 	},
 	{
-		"rule": "example",
+		"rule": "example 02",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 03",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 04",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
 		"replace": "REPLACED"
 	},
 	{
-		"rule": "example",
+		"rule": "example 05",
 		"rulename": "Test phrase",
 		"match": "Replace me",
 		"desc": "",
